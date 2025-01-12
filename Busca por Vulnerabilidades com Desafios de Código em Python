@@ -1,0 +1,21 @@
+# Função para verificar se o corpo do e-mail contém palavras suspeitas de phishing
+def verificar_phishing(mensagem):
+    # Lista de palavras suspeitas de phishing
+    palavras_suspeitas = ["ganhe", "prêmio", "urgente", "desconto", "click", "promoção"]
+    
+    # Verifica se alguma palavra suspeita está presente na mensagem
+    for palavra in palavras_suspeitas:
+        if palavra.lower() in mensagem.lower():
+            return "Phishing"
+    
+    # Se nenhuma palavra suspeita for encontrada, retorna "Seguro"
+    return "Seguro"
+
+# Entrada do usuário
+email_usuario = input().strip()  # Remove espaços extras no início e no final
+
+# Classifica o e-mail com base na análise
+resultado = verificar_phishing(email_usuario)
+
+# Saída no formato esperado
+print(f"Classificação: {resultado}")
